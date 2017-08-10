@@ -27,11 +27,16 @@ post '/visit' do
   @datetime = params[:date_time]
   @barber = params[:barber]
 
-  ff = File.open('./public/users.txt', 'a')
+  if @username == ''
+    @error = 'Enter your name'
+    return erb :visit
+  else
+    ff = File.open('./public/users.txt', 'a')
 
-  ff.write "#{@username}, #{@phone}, #{@datetime}, #{@barber}\n"
+    ff.write "#{@username}, #{@phone}, #{@datetime}, #{@barber}\n"
 
-  ff.close
+    ff.close
+  end
 
   erb "OK! Username is #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 end
