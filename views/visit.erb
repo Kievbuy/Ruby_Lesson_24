@@ -1,0 +1,34 @@
+<h1>Make an appointment</h1>
+
+<p>Please, chose date and time</p>
+
+<form action="/visit" method="POST">
+
+  <div class="form-group">
+    <label>Your Name</label>
+    <input name="username" type="text" class="form-control" placeholder="Enter your name">
+  </div>
+
+  <div class="form-group">
+    <label>Your Phone</label>
+    <input name="phone" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your phone">
+  </div>
+
+  <div class="form-group">
+    <label>Date and Time</label>
+    <input name="date_time" type="text" class="form-control" placeholder="Enter Date and Time">
+  </div>
+
+  <div class="form-group">
+    <label>Chose your Barber</label>
+    <select name="barber" class="form-control">
+      <option>Walter White</option>
+      <option>Jessie Pinkman</option>
+      <option>Gus Fring</option>
+      <option>John Doe</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
