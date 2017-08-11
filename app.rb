@@ -33,11 +33,17 @@ post '/visit' do
       :date_time => 'Enter Date and Time'}
 
   #для каждой пары ключ/значение
-  hh.each do |key, value|
-    if params[key] == ''
-      @error = hh[key]
-      return erb :visit
-    end
+  # hh.each do |key, value|
+  #   if params[key] == ''
+  #     @error = hh[key]
+  #     return erb :visit
+  #   end
+  # end
+
+  @error = hh.select{|key, value| params[key] == ""}.values.join(", ")
+
+  if @error != ''
+    return erb :visit
   end
 
   ff = File.open('./public/users.txt', 'a')
