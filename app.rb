@@ -54,3 +54,33 @@ post '/visit' do
 
   erb "OK! Username is #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 end
+
+
+
+post '/contacts' do
+
+  @username = params[:username]
+  @phone = params[:phone]
+  @message = params[:message]
+
+  hh = {
+      :username => 'Enter you name',
+      :phone => 'Enter your phone',
+      :message => 'Enter your Message'}
+
+  time1 = Time.new
+
+  @error = hh.select{|key, value| params[key] == ""}.values.join(", ")
+
+  if @error != ''
+    return erb :contacts
+  end
+
+  ff = File.open('./public/messages.txt', 'a')
+
+  ff.write "Date/Time: #{time1.inspect}: #{@username}, #{@phone}, #{@message}\n===========\n"
+
+  ff.close
+
+  erb "OK! Username is #{@username}, #{@phone}, #{@message}"
+end
