@@ -27,16 +27,24 @@ post '/visit' do
   @datetime = params[:date_time]
   @barber = params[:barber]
 
-  if @username == ''
-    @error = 'Enter your name'
-    return erb :visit
-  else
-    ff = File.open('./public/users.txt', 'a')
+  hh = {
+      :username => 'Enter you name',
+      :phone => 'Enter your phone',
+      :date_time => 'Enter Date and Time'}
 
-    ff.write "#{@username}, #{@phone}, #{@datetime}, #{@barber}\n"
-
-    ff.close
+  #для каждой пары ключ/значение
+  hh.each do |key, value|
+    if params[key] == ''
+      @error = hh[key]
+      return erb :visit
+    end
   end
+
+  ff = File.open('./public/users.txt', 'a')
+
+  ff.write "#{@username}, #{@phone}, #{@datetime}, #{@barber}\n"
+
+  ff.close
 
   erb "OK! Username is #{@username}, #{@phone}, #{@datetime}, #{@barber}"
 end
