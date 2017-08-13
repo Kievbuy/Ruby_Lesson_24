@@ -31,6 +31,10 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/showusers' do
+  erb "Hello World"
+end
+
 # === POST ===
 
 post '/visit' do
