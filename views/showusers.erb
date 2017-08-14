@@ -1,0 +1,42 @@
+<h1>Show all customers</h1>
+
+<h3>List of users</h3>
+<br>
+<h4>Total number of users: <%= @results.size %></h4>
+
+<br>
+
+
+<%= @results %>
+<br>
+<br>
+
+<table class="table">
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Date and Time</th>
+    <th>Barber</th>
+    <th>Color</th>
+  </tr>
+
+  <% @results.each do |row| %>
+
+  <tr>
+    <td><%= row['id'] %></td>
+    <td><%= row['username'] %></td>
+    <td><%= row['phone'] %></td>
+    <td><%= row['datestamp'] %></td>
+    <td><%= row['barber'] %></td>
+    <td><%= row['color'] %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+
+
+
