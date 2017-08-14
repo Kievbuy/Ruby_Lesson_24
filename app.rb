@@ -110,7 +110,7 @@ values
     ?,?,?,?,?
 )', [@username, @phone, @datetime, @barber, @color]
 
-  erb "OK! Username is #{@username}, #{@phone}, #{@datetime}, #{@barber}"
+  erb "<h2>Спасибо. Вы записались.</h2>"
 end
 
 
